@@ -87,7 +87,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->gambar }}</td>
-                            <td>{{ $item->commodity->nama }}</td>
+                            <td>{{ $item->commodity ? $item->commodity->nama : '' }}</td>
                             <td>{{ $item->harga }}</td>
                             <td>{{ $item->diskon }}</td>
                             <td width="13%" align="center">
