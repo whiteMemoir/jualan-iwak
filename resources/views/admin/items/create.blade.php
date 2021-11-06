@@ -82,7 +82,7 @@
                                 <label for="exampleInputPassword1">Komoditas</label>
                                 <select class="form-control" name="commodity_id">
                                     @foreach ($commodities as $commodity)
-                                    <option value="{{ $commodity->id }}">{{ $commodity->nama }}</option>                                        
+                                    <option value="{{ $commodity->id }}">{{ $commodity->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -93,9 +93,6 @@
                                         <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                      </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -111,7 +108,7 @@
                                 <input type="number" class="form-control" name="diskon" placeholder="Masukkan diskon item">
                             </div>
                         </div>
-                        <!-- /.card-body -->              
+                        <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
