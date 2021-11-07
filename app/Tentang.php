@@ -1,0 +1,15 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Tentang extends Model
+{
+    protected $table = 'tentang_kami';
+
+    protected $fillable = [
+        'judul',
+        'deskripsi'
+    ];
+}

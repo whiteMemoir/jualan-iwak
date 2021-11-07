@@ -13,9 +13,7 @@
 
 use App\Http\Controllers\CommodityController;
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('/items', 'ItemController@index');
 
