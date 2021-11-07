@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Commodity;
+use App\Item;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -127,8 +128,15 @@ class CommodityController extends Controller
     public function destroy($id)
     {
         $commodity = Commodity::findOrFail($id);
+
         Storage::disk('local')->delete('public/commodities/' . basename($commodity->gambar));
         $commodity->delete();
+
+        $items = Item::where('commodity_id', $id)->get();
+        if($items) {
+            $items->commodity_id = null;
+            $items->save();
+        }
 
         if ($commodity) {
             return response()->json([

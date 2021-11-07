@@ -21,6 +21,7 @@ Route::get('/items', 'ItemController@index');
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('/', 'admin\DashboardController@index');
         Route::resource('/item', 'admin\ItemController');
         Route::resource('/carousel', 'admin\CarouselController');
         Route::resource('/commodity', 'admin\CommodityController');
@@ -30,6 +31,6 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
