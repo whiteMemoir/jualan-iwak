@@ -63,31 +63,37 @@
 @section('box')
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">DataTable with default features</h3>
+    <h3 class="card-title">List Komoditas</h3>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
+    <a href="{{ url('admin/commodity/create') }}" class="btn btn-primary mb-3">Tambah Item</a>
+    <hr>
     <table id="example1" class="table table-bordered table-striped">
       <thead>
       <tr>
         <th width="5%">No</th>
         <th>Nama</th>
         <th>Gambar</th>
-        <th>Aksi</th>
+        <th class="text-center">Aksi</th>
       </tr>
       </thead>
       <tbody>
-        @foreach ($commodities as $commodity)
+        @forelse ($commodities as $commodity)
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $commodity->nama }}</td>
           <td>{{ $commodity->gambar }}</td>
-          <td>
+          <td width="12%" align="center">
             <a href="{{ route('commodity.edit', $commodity->id) }}" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
-            <button href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+            <button onclick="destroy(`{{ $commodity->id }}`, `{{ $commodity->nama }}`)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
           </td>
-        </tr>            
-        @endforeach
+        </tr>
+        @empty
+        <tr>
+            <td colspan="4" class="text-center">Data tidak ada</td>
+        </tr>
+        @endforelse
       </tbody>
     </table>
   </div>
@@ -101,9 +107,7 @@
 <script src={{ asset("adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js") }}></script>
 <script src={{ asset("adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js") }}></script>
 <script src={{ asset("adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js") }}></script>
-<script src={{ asset("adminlte/plugins/datatables-buttons/js/buttons.html5.min.js") }}></script>
-<script src={{ asset("adminlte/plugins/datatables-buttons/js/buttons.print.min.js") }}></script>
-<script src={{ asset("adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js") }}></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -119,6 +123,41 @@
       "responsive": true,
     });
   });
+
+    function destroy(id, nama) {
+        swal({
+            title: `Apakah anda yakin ingin menghapus ${nama}?`,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                //AJAX DELETE
+                $.ajax({
+                    url: `/admin/commodity/${id}`,
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.status == 'success') {
+                            mes = 'Data berhasil dihapus';
+                            icon = 'success';
+                        } else {
+                            mes = 'Data gagal dihapus';
+                            icon = 'error';
+                        }
+                        swal(mes, {icon: icon}).then(() => {
+                            location.reload();
+                        });
+                    },
+                    error: function(err) {
+                        console.log(err)
+                    }
+                });
+            }
+        });
+    }
 </script>
 @endsection
 

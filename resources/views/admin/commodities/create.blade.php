@@ -71,12 +71,12 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="POST" action={{ url('/admin/item') }} enctype="multipart/form-data">
+                    <form method="POST" action={{ url('/admin/commodity') }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama Komoditas</label>
-                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama komoditas">
+                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama komoditas" value="{{ old($comodity->nama) }}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
@@ -86,9 +86,9 @@
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                 </div>
-                            </div>                    
+                            </div>
                         </div>
-                        <!-- /.card-body -->              
+                        <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
