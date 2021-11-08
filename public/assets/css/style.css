@@ -54,7 +54,7 @@ body {
 
 .content-grid {
     display: grid;
-    grid-template-columns: 
+    grid-template-columns:
         repeat(4,minmax(56px,56px));
     width: 100%;
     justify-content: space-evenly;
@@ -325,13 +325,15 @@ body {
     font-size: 11px;
 }
 
-.payment-method {
+.payment-method,
+.tentang-kami {
     padding: 1.5rem 1rem;
     margin: .75rem auto;
-    height: 144px;
+    height: auto;
 }
 
-.payment-method h2 {
+.payment-method h2,
+.tentang-kami h2 {
     --text-opacity: 1;
     color: rgba(34,34,34,var(--text-opacity));
     text-align: center;
