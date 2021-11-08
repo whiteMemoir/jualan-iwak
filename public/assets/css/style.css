@@ -522,3 +522,7 @@ nav {
 .for-card {
     height: 400px;
 }
+
+.owl-one .owl-next:focus, .owl-prev:focus {
+    outline: none;
+}
