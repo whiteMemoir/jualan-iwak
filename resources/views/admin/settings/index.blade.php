@@ -15,16 +15,16 @@
 
       <li class="nav-item menu-open">
         <a href="{{ url('/admin/commodity') }}" class="nav-link ">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-dumpster"></i>
           <p>
-            Commodities
+            Komoditas
           </p>
         </a>
       </li>
 
       <li class="nav-item menu-open">
         <a href="{{ url('/admin/item') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-fish"></i>
           <p>
             Items
           </p>
@@ -33,27 +33,27 @@
 
       <li class="nav-item menu-open">
         <a href="{{ url('/admin/carousel') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-tablet-alt"></i>
           <p>
-            Carousel
+            Slider Banner
           </p>
         </a>
       </li>
 
       <li class="nav-item menu-open">
         <a href="{{ url('/admin/social-media') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-icons"></i>
           <p>
-            Social Medias
+            Sosial Media
           </p>
         </a>
       </li>
 
       <li class="nav-item menu-open">
         <a href="{{ url('/admin/setting') }}" class="nav-link active">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="nav-icon fas fa-cog"></i>
           <p>
-            Settings
+            Pengaturan
           </p>
         </a>
       </li>
