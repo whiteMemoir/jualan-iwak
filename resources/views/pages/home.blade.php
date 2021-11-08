@@ -8,6 +8,9 @@
 @section('payment-method')
     @include('includes.method-payment')
 @endsection
+@section('tentang-kami')
+    @include('includes.tentang-kami')
+@endsection
 @section('footer')
     @include('includes.footer')
 @endsection
@@ -15,4 +18,4 @@
     @include('includes.owl-script')
 @endsection
 
-    
+
