@@ -66,179 +66,40 @@
                     <div class="slider-menu-flex">
                         <div class="slider-menu-scroll">
                             <div id="owl-two" class="owl-carousel owl-theme">
-                                <a class="space-slider" href="#">
-                                    <div class="slider-menu-height">
-                                        <div class="inner-slider-menu">
-                                            <div class="top-inner">
-                                                <div class="inner-img">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="center-inner">
-                                                <h2>
-                                                    <span class="text-base">
-                                                        <span class="line-clamp">500kg 12 sack</span>
-                                                    </span>
-                                                    <span class="text-flex">
-                                                        <span class="text-desc">Ikan Palsu Segar</span>
-                                                    </span>
-                                                </h2>
-                                                <div class="disc-inner-amount">
-                                                    <div class="price-discount">
-                                                        <div class="disc-value">10%</div>
-                                                    </div>
-                                                    <div class="strikethrough">Rp10.000.000</div>
-                                                </div>
-                                                <div class="price-amount">Rp1.000.000</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
 
+                                @forelse ($items as $item)
                                 <a class="space-slider" href="#">
                                     <div class="slider-menu-height">
                                         <div class="inner-slider-menu">
                                             <div class="top-inner">
-                                                <div class="inner-img">
+                                                <div class="inner-img d-flex justify-content-center">
                                                     <img src="" alt="">
                                                 </div>
                                             </div>
                                             <div class="center-inner">
                                                 <h2>
                                                     <span class="text-base">
-                                                        <span class="line-clamp">500kg 12 sack</span>
-                                                    </span>
-                                                    <span class="text-flex">
-                                                        <span class="text-desc">Ikan Tongkol Segar</span>
-                                                    </span>
-                                                </h2>
+                                                        <span class="line-clamp">{{ $item->nama }}</span>
+                                                    </span>                                                    
                                                 <div class="disc-inner-amount">
                                                     <div class="price-discount">
-                                                        <div class="disc-value">10%</div>
+                                                        <div class="disc-value">{{ $item->diskon }}%</div>
                                                     </div>
-                                                    <div class="strikethrough">Rp10.000.000</div>
+                                                    <div class="strikethrough">{{ $item->harga }}/kg</div>
                                                 </div>
-                                                <div class="price-amount">Rp1.000.000</div>
+                                                <div class="price-amount">@php
+                                                   $hasilAkhir = $item['harga'] - ($item['harga'] * $item['diskon'] / 100);
+                                                   echo 'Rp'.number_format($hasilAkhir, 0, ",", ".");
+                                                @endphp/kg</div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-
-                                <a class="space-slider" href="#">
-                                    <div class="slider-menu-height">
-                                        <div class="inner-slider-menu">
-                                            <div class="top-inner">
-                                                <div class="inner-img">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="center-inner">
-                                                <h2>
-                                                    <span class="text-base">
-                                                        <span class="line-clamp">500kg 12 sack</span>
-                                                    </span>
-                                                    <span class="text-flex">
-                                                        <span class="text-desc">Ikan Gabus Segar</span>
-                                                    </span>
-                                                </h2>
-                                                <div class="disc-inner-amount">
-                                                    <div class="price-discount">
-                                                        <div class="disc-value">10%</div>
-                                                    </div>
-                                                    <div class="strikethrough">Rp10.000.000</div>
-                                                </div>
-                                                <div class="price-amount">Rp1.000.000</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a class="space-slider" href="#">
-                                    <div class="slider-menu-height">
-                                        <div class="inner-slider-menu">
-                                            <div class="top-inner">
-                                                <div class="inner-img">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="center-inner">
-                                                <h2>
-                                                    <span class="text-base">
-                                                        <span class="line-clamp">500kg 12 sack</span>
-                                                    </span>
-                                                    <span class="text-flex">
-                                                        <span class="text-desc">Ikan Hiu Segar</span>
-                                                    </span>
-                                                </h2>
-                                                <div class="disc-inner-amount">
-                                                    <div class="price-discount">
-                                                        <div class="disc-value">10%</div>
-                                                    </div>
-                                                    <div class="strikethrough">Rp10.000.000</div>
-                                                </div>
-                                                <div class="price-amount">Rp1.000.000</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a class="space-slider" href="#">
-                                    <div class="slider-menu-height">
-                                        <div class="inner-slider-menu">
-                                            <div class="top-inner">
-                                                <div class="inner-img">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="center-inner">
-                                                <h2>
-                                                    <span class="text-base">
-                                                        <span class="line-clamp">500kg 12 sack</span>
-                                                    </span>
-                                                    <span class="text-flex">
-                                                        <span class="text-desc">Ikan Roa Segar</span>
-                                                    </span>
-                                                </h2>
-                                                <div class="disc-inner-amount">
-                                                    <div class="price-discount">
-                                                        <div class="disc-value">10%</div>
-                                                    </div>
-                                                    <div class="strikethrough">Rp10.000.000</div>
-                                                </div>
-                                                <div class="price-amount">Rp1.000.000</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a class="space-slider" href="#">
-                                    <div class="slider-menu-height">
-                                        <div class="inner-slider-menu">
-                                            <div class="top-inner">
-                                                <div class="inner-img">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="center-inner">
-                                                <h2>
-                                                    <span class="text-base">
-                                                        <span class="line-clamp">500kg 12 sack</span>
-                                                    </span>
-                                                    <span class="text-flex">
-                                                        <span class="text-desc">Ikan Roa Segar</span>
-                                                    </span>
-                                                </h2>
-                                                <div class="disc-inner-amount">
-                                                    <div class="price-discount">
-                                                        <div class="disc-value">10%</div>
-                                                    </div>
-                                                    <div class="strikethrough">Rp10.000.000</div>
-                                                </div>
-                                                <div class="price-amount">Rp1.000.000</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                                @empty
+                                <div>Tidak Ada Items!</div>
+                                @endforelse
+                                
+                            
                             </div>
                         </div>
                     </div>

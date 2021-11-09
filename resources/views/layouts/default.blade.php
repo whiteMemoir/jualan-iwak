@@ -32,7 +32,18 @@
         </div>
     </div>
     @yield('payment-method')
-    @yield('tentang-kami')
+    <div class="body-flex tentang-kami">
+        <h2>Tentang Kami</h2>
+        <ul class="list-group list-group-flush">
+            @forelse($data as $tentang)
+            <li class="list-group-item">
+                <a data-bs-toggle="collapse" href="#collapse-{{ $loop->index }}" role="button" aria-expanded="false" aria-controls="collapse-{{ $loop->index }}" style="text-decoration: none;">{{ $tentang->judul }}</a>
+                <div class="collapse my-3" id="collapse-{{ $loop->index }}">{{ $tentang->deskripsi }}</div>
+            </li>
+            @empty
+                <div>Items Tidak Tersedia!</div>
+            @endforelse
+        </ul>
     @yield('footer')
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">

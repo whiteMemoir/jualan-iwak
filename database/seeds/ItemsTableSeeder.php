@@ -22,6 +22,30 @@ class ItemsTableSeeder extends Seeder
                     'slug'   => 'ikan-patin',
 
                 ],
+                [
+                    'nama'   => 'Ikan hiu',
+                    'commodity_id' => 2,
+                    'slug'   => 'ikan-hiu',
+
+                ],
+                [
+                    'nama'   => 'Ikan piranha',
+                    'commodity_id' => 2,
+                    'slug'   => 'ikan-piranha',
+
+                ],
+                [
+                    'nama'   => 'Ikan teri',
+                    'commodity_id' => 2,
+                    'slug'   => 'ikan-teri',
+
+                ],
+                [
+                    'nama'   => 'Ikan asin',
+                    'commodity_id' => 2,
+                    'slug'   => 'ikan-asin',
+
+                ],
 
             ]);
         }

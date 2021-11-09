@@ -72,7 +72,7 @@
             <!-- Brand Logo -->
             <a href="{{ url('admin/dashboard') }}" class="brand-link">
                 <img src= {!! asset('assets/img/logo-admin.png') !!}  alt="AdminLTE Logo"
-                    class="brand-image elevation-3">
+                    class="brand-image">
                 <span class="brand-text font-weight-light">Lautan Ikan Admin</span>
             </a>
 
