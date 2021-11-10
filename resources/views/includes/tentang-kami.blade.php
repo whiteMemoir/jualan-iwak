@@ -1,5 +1,5 @@
 <div class="body-flex tentang-kami">
-    <h2>Tentang Kami</h2>
+    <h2 class="text-align: center; font-size: 16px; font-weight: 700;">Tentang Kami</h2>
     <ul class="list-group list-group-flush">
         @forelse($tentang_kami as $key => $tentang)
             <li class="list-group-item">

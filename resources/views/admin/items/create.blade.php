@@ -79,7 +79,7 @@
                                 <input type="text" class="form-control" name="nama" placeholder="Masukkan nama item">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Komoditas</label>
+                                <label for="exampleInputPassword1">Jenis</label>
                                 <select class="form-control" name="commodity_id">
                                     @foreach ($commodities as $commodity)
                                     <option value="{{ $commodity->id }}">{{ $commodity->nama }}</option>
