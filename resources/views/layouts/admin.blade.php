@@ -47,7 +47,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="https://www.lautanikan.com" class="nav-link">Lihat Web</a>
+                    <a href="https://www.lautanikan.com" class="nav-link" target="_blank">Lihat Web</a>
                 </li>
             </ul>
 

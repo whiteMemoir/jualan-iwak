@@ -41,10 +41,14 @@ class CommodityController extends Controller
     public function store(Request $request)
     {
         $gambar = $request->file('gambar');
-        $gambar->storeAs('public/commodities', $gambar->hashName());
+        // jika gambar diisi
+        if($gambar) {
+            $gambar->storeAs('public/commodities', $gambar->hashName());
+            $gambar = $gambar->hashName();
+        }
 
         $commodity = Commodity::create([
-            'gambar' => $gambar->hashName(),
+            'gambar' => $gambar,
             'nama'  => $request->nama,
             'slug'  => Str::slug($request->nama, '-')
         ]);
