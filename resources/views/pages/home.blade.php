@@ -6,8 +6,7 @@
     @include('includes.main-menu')
 @endsection
 @section('payment-method')
-    @include('includes.method-payment')
-@endsection
+@include('includes.method-payment')
 {{--
     kenapa ku pindahin sini? karena kita tidak punya uang kwakwakak.
     karena tentang hanya muncul di home aja
@@ -25,6 +24,7 @@
         @endforelse
     </ul>
 </div>
+@endsection
 @section('footer')
     @include('includes.footer')
 @endsection
