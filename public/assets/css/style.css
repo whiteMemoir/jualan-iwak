@@ -520,9 +520,14 @@ nav {
 }
 
 .for-card {
-    height: 400px;
+    height: 880px;
 }
 
 .owl-one .owl-next:focus, .owl-prev:focus {
     outline: none;
+}
+
+.see-all nav {
+    position: static;
+    z-index: 0;
 }

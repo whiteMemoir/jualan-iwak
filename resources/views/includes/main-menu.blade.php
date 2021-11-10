@@ -73,7 +73,7 @@
                                         <div class="inner-slider-menu">
                                             <div class="top-inner">
                                                 <div class="inner-img d-flex justify-content-center">
-                                                    <img src="" alt="">
+                                                    <div class=""><img src="https://i.ibb.co/zHwByY8/g1git status851.png"></div>
                                                 </div>
                                             </div>
                                             <div class="center-inner">
@@ -104,9 +104,11 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="see-all">
-                    <a href="" class="btn btn-primary">Lihat Semua</a>
+                    <div class="position-relative">{{ $items->links() }}</div><br>                    
                 </div>
+                <div class="see-all"><a href="{{ url('items')}}" class="btn btn-primary">Lihat Semua</a></div>
             </div>
         </div>
     </main>

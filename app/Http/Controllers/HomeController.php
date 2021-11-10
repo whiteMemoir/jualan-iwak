@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = Tentang::all();
-        $items = Item::all();
+        $items = Item::all()->orderBy('price', 'desc')->get();
         // $hargaAkhir = DB::table('items')
         //     ->selectRaw('harga', 'diskon', 'harga - (harga*diskon/100)')
         //     ->get();
