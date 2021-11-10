@@ -80,16 +80,16 @@
                                                 <h2>
                                                     <span class="text-base">
                                                         <span class="line-clamp">{{ $item->nama }}</span>
-                                                    </span>                                                    
+                                                    </span>
                                                 <div class="disc-inner-amount">
                                                     <div class="price-discount">
-                                                        <div class="disc-value">{{ $item->diskon }}%</div>
+                                                        <div class="disc-value">{{ $item->diskon ?? '0'}}%</div>
                                                     </div>
-                                                    <div class="strikethrough">{{ $item->harga }}/kg</div>
+                                                    <div class="strikethrough">{{ $item->harga ?? 0 }}/kg</div>
                                                 </div>
                                                 <div class="price-amount">@php
                                                    $hasilAkhir = $item['harga'] - ($item['harga'] * $item['diskon'] / 100);
-                                                   echo 'Rp'.number_format($hasilAkhir, 0, ",", ".");
+                                                   echo 'Rp. '.number_format($hasilAkhir, 0, ",", ".");
                                                 @endphp/kg</div>
                                             </div>
                                         </div>
@@ -98,8 +98,8 @@
                                 @empty
                                 <div>Tidak Ada Items!</div>
                                 @endforelse
-                                
-                            
+
+
                             </div>
                         </div>
                     </div>
