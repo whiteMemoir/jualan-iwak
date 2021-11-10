@@ -80,10 +80,10 @@
                                 <input type="text" value="{{ $item->nama }}" class="form-control" name="nama" placeholder="Masukkan nama item">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Komoditas</label>
+                                <label for="exampleInputPassword1">Jenis</label>
                                 <select class="form-control" name="commodity_id">
                                     @foreach ($commodities as $commodity)
-                                    <option value="{{ $commodity->id }}">{{ $commodity->nama }}</option>                                        
+                                    <option value="{{ $commodity->id }}">{{ $commodity->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -112,7 +112,7 @@
                                 <input type="number" value="{{ $item->diskon }}" class="form-control" name="diskon" placeholder="Masukkan diskon item">
                             </div>
                         </div>
-                        <!-- /.card-body -->              
+                        <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>

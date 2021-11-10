@@ -191,7 +191,7 @@ body {
     overflow: hidden;
     opacity: 1;
     min-height: 238px;
-    height: 100%;
+    height: auto;
     font-family: Roboto, sans-serif;
     flex-direction: column;
     display: flex;

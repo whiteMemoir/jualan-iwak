@@ -76,7 +76,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama Komoditas</label>
-                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama komoditas" value="{{ old($comodity->nama) }}">
+                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama komoditas">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
