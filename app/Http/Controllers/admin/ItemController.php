@@ -29,7 +29,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $commodities = Commodity::latest()->get();
+        $commodities = Commodity::orderBy('id')->get();
         return view('admin.items.create', compact('commodities'));
     }
 
