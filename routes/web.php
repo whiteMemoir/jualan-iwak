@@ -15,7 +15,6 @@ use App\Http\Controllers\CommodityController;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/items', 'ItemController@index');
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
@@ -32,3 +31,9 @@ Route::prefix('admin')->group(function () {
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/items', 'ItemController@index');
+Route::get('/items/{slug}', 'ItemController@index');
+
+Route::prefix('api')->group(function () {
+    Route::get('/items/{komoditas}', 'ItemController@getItems');
+});

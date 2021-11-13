@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
 use Illuminate\Http\Request;
+use App\Item;
 use App\Tentang;
-use Illuminate\Support\Facades\DB;
+use App\Commodity;
 
 class HomeController extends Controller
 {
@@ -26,12 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Tentang::all();
-        $items = Item::all();
-        // $hargaAkhir = DB::table('items')
-        //     ->selectRaw('harga', 'diskon', 'harga - (harga*diskon/100)')
-        //     ->get();
+        $tentang = Tentang::all();
+        $commodities = Commodity::get();
+        $items = Item::limit(6)->get();
 
-        return view('pages.home', compact('data', 'items'));
+        return view('pages.home', compact('tentang', 'items', 'commodities'));
     }
 }
