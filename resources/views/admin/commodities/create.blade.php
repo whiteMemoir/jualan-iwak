@@ -20,13 +20,13 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Jenis</label>
-                                <input type="text" class="form-control" name="nama" placeholder="Masukkan jenis">
+                                <input type="text" class="form-control" name="nama" placeholder="Masukkan jenis" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar">
+                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar" required>
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                 </div>

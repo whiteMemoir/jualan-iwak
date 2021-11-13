@@ -21,11 +21,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama Item</label>
-                                <input type="text" value="{{ $item->nama }}" class="form-control" name="nama" placeholder="Masukkan nama item">
+                                <input type="text" value="{{ $item->nama }}" class="form-control" name="nama" placeholder="Masukkan nama item" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jenis</label>
-                                <select class="form-control" name="commodity_id">
+                                <select class="form-control" name="commodity_id" required>
                                     @foreach ($commodities as $commodity)
                                     <option value="{{ $commodity->id }}">{{ $commodity->nama }}</option>
                                     @endforeach
@@ -35,7 +35,7 @@
                                 <label for="exampleInputFile">File Gambar</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" value="{{ $item->gambar }}" class="custom-file-input" id="exampleInputFile" name="gambar">
+                                        <input type="file" value="{{ $item->gambar }}" class="custom-file-input" id="exampleInputFile" name="gambar" required>
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
@@ -49,11 +49,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="number" value="{{ $item->harga }}" class="form-control" name="harga" placeholder="Masukkan harga item">
+                                <input type="number" value="{{ $item->harga }}" class="form-control" name="harga" placeholder="Masukkan harga item" required>
                             </div>
                             <div class="form-group">
                                 <label>Diskon</label>
-                                <input type="number" value="{{ $item->diskon }}" class="form-control" name="diskon" placeholder="Masukkan diskon item">
+                                <input type="number" value="{{ $item->diskon }}" class="form-control" name="diskon" placeholder="Masukkan diskon item" required>
                             </div>
                         </div>
                         <!-- /.card-body -->
