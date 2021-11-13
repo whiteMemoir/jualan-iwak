@@ -4,6 +4,15 @@
     @include('includes.sidebar-admin')
 @endsection
 
+@section('css')
+<style>
+    #example1_filter,
+    #example1_paginate ul {
+        float: right !important;
+    }
+</style>
+@endsection
+
 @section('box')
 <div class="card">
   <div class="card-header">
@@ -27,7 +36,7 @@
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $commodity->nama }}</td>
-          <td>{{ $commodity->gambar }}</td>
+          <td><img src="{{ url('storage/commodities/'.$commodity->gambar.'') }}" width="50"></td>
           <td width="12%" align="center">
             <a href="{{ route('commodity.edit', $commodity->id) }}" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
             <button onclick="destroy(`{{ $commodity->id }}`, `{{ $commodity->nama }}`)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
