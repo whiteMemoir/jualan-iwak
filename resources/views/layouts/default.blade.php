@@ -45,5 +45,6 @@
     <!--owl carousel js link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     @yield('owl')
+    @yield('scripts')
 </body>
 </html>
