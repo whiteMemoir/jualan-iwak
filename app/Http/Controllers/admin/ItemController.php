@@ -50,7 +50,7 @@ class ItemController extends Controller
             'slug'          => Str::slug($request->name, '-'),
             'commodity_id'  => $request->commodity_id,
             'deskripsi'     => $request->deskripsi,
-            'diskon'        => $request->diskon,
+            'diskon'        => $request->diskon ?? 0,
             'harga'         => $request->harga,
             'keterangan'    => $request->keterangan
         ]);

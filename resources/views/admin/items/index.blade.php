@@ -4,6 +4,15 @@
     @include('includes.sidebar-admin')
 @endsection
 
+@section('css')
+<style>
+    #example1_filter,
+    #example1_paginate ul {
+        float: right !important;
+    }
+</style>
+@endsection
+
 @section('box')
     <div class="card">
         <div class="card-header">
@@ -30,7 +39,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama }}</td>
-                            <td>{{ $item->gambar }}</td>
+                            <td><img src="{{ asset('storage/items/'.$item->gambar.'') }}" width="50"></td>
                             <td>{{ $item->commodity ? $item->commodity->nama : '' }}</td>
                             <td>{{ $item->harga }}</td>
                             <td>{{ $item->diskon }}</td>
