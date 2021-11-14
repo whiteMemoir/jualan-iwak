@@ -27,7 +27,7 @@
                                 <label for="exampleInputPassword1">Jenis</label>
                                 <select class="form-control" name="commodity_id" required>
                                     @foreach ($commodities as $commodity)
-                                    <option value="{{ $commodity->id }}">{{ $commodity->nama }}</option>
+                                    <option value="{{ $commodity->id }}" {{ $item->commodity_id == $commodity->id ? 'selected' : '' }}>{{ $commodity->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
