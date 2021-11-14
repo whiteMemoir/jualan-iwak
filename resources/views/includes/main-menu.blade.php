@@ -70,10 +70,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="see-all">
-                    <div class="position-relative">{{ $items->links() }}</div><br>                    
-                </div>
+
                 <div class="see-all"><a href="{{ url('items')}}" class="btn btn-primary">Lihat Semua</a></div>
             </div>
         </div>
