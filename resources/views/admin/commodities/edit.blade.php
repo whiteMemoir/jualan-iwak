@@ -27,8 +27,9 @@
                                 <label for="exampleInputFile">File Gambar</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" value="{{ $commodity->gambar }}" class="custom-file-input" id="exampleInputFile" name="gambar" required>
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        {{-- <input type="file" value="{{ $commodity->gambar }}" class="custom-file-input" id="exampleInputFile" name="gambar" required>
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label> --}}
+                                        <input type="file" class="form-control" name="gambar">
                                     </div>
                                 </div>
                             </div>

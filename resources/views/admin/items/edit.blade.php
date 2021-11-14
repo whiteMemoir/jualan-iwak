@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Data</h3>
+                        <h3 class="card-title">Edit Data</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -34,13 +34,11 @@
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
                                 <div class="input-group">
-                                    <div class="custom-file">
+                                    {{-- <div class="custom-file">
                                         <input type="file" value="{{ $item->gambar }}" class="custom-file-input" id="exampleInputFile" name="gambar" required>
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                      </div>
+                                    </div> --}}
+                                    <input type="file" class="form-control" name="gambar">
                                 </div>
                             </div>
                             <div class="form-group">

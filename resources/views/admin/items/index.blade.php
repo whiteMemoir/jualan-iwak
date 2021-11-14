@@ -21,6 +21,12 @@
         <!-- /.card-header -->
         <div class="card-body">
             <a href="{{ url('admin/item/create') }}" class="btn btn-primary mb-3">Tambah Item</a>
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
             <hr>
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
