@@ -29,7 +29,6 @@ class HomeController extends Controller
         $tentang = Tentang::all();
         $commodities = Commodity::get();
         $items = Item::limit(6)->get();
-
         return view('pages.home', compact('tentang', 'items', 'commodities'));
     }
 }
