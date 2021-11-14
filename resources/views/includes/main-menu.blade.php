@@ -39,6 +39,7 @@
                                             <div class="top-inner">
                                                 <div class="inner-img d-flex justify-content-center">
                                                     <img src="{{ asset('storage/items/'.$item->gambar.'') }}" alt="" style="padding: 3px;" class="border">
+
                                                 </div>
                                             </div>
                                             <div class="center-inner">
@@ -69,9 +70,11 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="see-all">
-                    <a href="" class="btn btn-primary">Lihat Semua</a>
+                    <div class="position-relative">{{ $items->links() }}</div><br>                    
                 </div>
+                <div class="see-all"><a href="{{ url('items')}}" class="btn btn-primary">Lihat Semua</a></div>
             </div>
         </div>
     </main>

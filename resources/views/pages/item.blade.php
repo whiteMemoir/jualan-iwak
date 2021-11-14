@@ -3,8 +3,6 @@
 @include('includes.banner')
 @endsection
 @section('content')
-
-
 <main class="for-card" style="height: auto;">
     <div class="container">
         <div class="row">

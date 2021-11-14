@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Item;
+use App\Tentang;
 use Illuminate\Http\Request;
 use App\Commodity;
 use App\Item;
