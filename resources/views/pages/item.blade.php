@@ -1,14 +1,24 @@
 @extends('layouts.default')
+
 @section('carousel')
-@include('includes.banner')
+    @include('includes.banner')
 @endsection
+
+@section('css')
+    <style>
+        .wrap-items  {
+            flex: 1 !important;
+        }
+    </style>
+@endsection
+
 @section('content')
 <main class="for-card" style="height: auto;">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 mt-5" style="margin-left: 25px;">
+            <div class="col-md-4 col-sm-6 mx-md-2 mt-5">
                 <label for="select-jenis" class="mb-1">Pilih Jenis</label>
-                <select class="form-select" aria-label="Default select example" id="select-jenis" onchange="selectJenis(this.value)">
+                <select class="form-select" aria-label="Default select example" id="select-jenis" onchange="selectJenis(this.value)" style="width: 100%">
                     <option selected value="" disabled>-- Pilh Jenis --</option>
                     @foreach ($commodities as $commodity)
                         <option value="{{ $commodity->slug }}" {{ ($slug != '' && $slug == $commodity->slug) ? 'selected' : ''  }}>{{ $commodity->nama }}</option>
@@ -18,10 +28,10 @@
         </div>
     </div>
     <div class="container mt-4">
-        <div class="row d-flex justify-content-center pb-md-5 content-utama">
+        <div class="row pb-md-5 content-utama">
 
             @forelse ($items as $item)
-                <div class="col-4 mb-3 mx-2">
+                <div class="col-4 mx-2 mb-2 wrap-items">
                     <div class="inner-slider-menu">
                         <div class="top-inner">
                             <div class="inner-img">
