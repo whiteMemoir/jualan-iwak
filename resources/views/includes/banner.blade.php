@@ -5,15 +5,15 @@
 
                 @forelse ($carousels as $banner)
                     <div class="promo-banner">
-                        <a href="{{ $banner->link ?? 'javascript:void()' }}">
-                            <div class="promo-img">
+                        <a href="{{ $banner->link ?? 'javascript:void()' }}" target="_blank">
+                            <div class="promo-img border">
                                 <img src="{{ asset('storage/carousels/'.$banner->gambar.'') }}" alt="{{ $banner->nama }}">
                             </div>
                         </a>
                     </div>
                 @empty
                     <div class="promo-banner">
-                        <a href="#">
+                        <a href="https://wa.me/6285333372786">
                             <div class="promo-img border">
                                 <img src="https://i.ibb.co/7zXL32N/pesan-antar.jpg" alt="gambar">
                             </div>
