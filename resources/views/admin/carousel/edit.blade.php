@@ -1,65 +1,9 @@
 @extends('layouts.admin')
+
 @section('sidebar-menu')
-<nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      <!-- Add icons to the links using the .nav-icon class
-           with font-awesome or any other icon font library -->
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/dashboard') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Dashboard
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/commodity') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Commodities
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/item') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Items
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/carousel') }}" class="nav-link active">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Carousel
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/social-media') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Social Medias
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/setting') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Settings
-          </p>
-        </a>
-      </li>
-    </ul>
-  </nav>
+    @include('includes.sidebar-admin')
 @endsection
+
 @section('box')
 <div class="content">
     <div class="container-fluid">
@@ -77,27 +21,29 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama Banner</label>
-                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama gambar">
+                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama gambar" value="{{ $carousel->nama }}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
-                                <div class="input-group">
+                                {{-- <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
-                                </div>
+                                </div> --}}
+                                <input type="file" class="form-control" name="gambar">
+                                <input type="hidden" name="gambar_lama" value="{{ $carousel->gambar }}">
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <textarea class="form-control" name="keterangan" id="" cols="10" rows="4"></textarea>
+                                <textarea class="form-control" name="keterangan" id="" cols="10" rows="4">{{ $carousel->keterangan }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" placeholder="Masukkan link">
+                                <input type="url" class="form-control" name="link" placeholder="Masukkan link" value="{{ $carousel->link }}">
                             </div>
                         </div>
-                        <!-- /.card-body -->              
+                        <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>

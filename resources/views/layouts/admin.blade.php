@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dashboard Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -28,6 +29,8 @@
     <link rel="stylesheet" href={{ asset("adminlte/plugins/daterangepicker/daterangepicker.css") }}>
     <!-- summernote -->
     <link rel="stylesheet" href={{ asset("adminlte/plugins/summernote/summernote-bs4.min.css") }}>
+
+    @yield('css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -47,7 +50,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="https://www.lautanikan.com" class="nav-link">Lihat Web</a>
+                    <a href="https://www.lautanikan.com" class="nav-link" target="_blank">Lihat Web</a>
                 </li>
             </ul>
 

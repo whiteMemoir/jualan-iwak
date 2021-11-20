@@ -1,73 +1,32 @@
 @extends('layouts.admin')
+
 @section('sidebar-menu')
-<nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      <!-- Add icons to the links using the .nav-icon class
-           with font-awesome or any other icon font library -->
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/dashboard') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Dashboard
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/commodity') }}" class="nav-link active">
-          <i class="nav-icon fas fa-dumpster"></i>
-          <p>
-            Komoditas
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/item') }}" class="nav-link">
-          <i class="nav-icon fas fa-fish"></i>
-          <p>
-            Items
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/carousel') }}" class="nav-link">
-          <i class="nav-icon fas fa-tablet-alt"></i>
-          <p>
-            Slider Banner
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/social-media') }}" class="nav-link">
-          <i class="nav-icon fas fa-icons"></i>
-          <p>
-            Sosial Media
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/setting') }}" class="nav-link">
-          <i class="nav-icon fas fa-cog"></i>
-          <p>
-            Pengaturan
-          </p>
-        </a>
-      </li>
-    </ul>
-  </nav>
+    @include('includes.sidebar-admin')
 @endsection
+
+@section('css')
+<style>
+    #example1_filter,
+    #example1_paginate ul {
+        float: right !important;
+    }
+</style>
+@endsection
+
 @section('box')
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">List Komoditas</h3>
+    <h3 class="card-title">List Jenis</h3>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
     <a href="{{ url('admin/commodity/create') }}" class="btn btn-primary mb-3">Tambah Item</a>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
     <hr>
     <table id="example1" class="table table-bordered table-striped">
       <thead>
@@ -83,7 +42,7 @@
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $commodity->nama }}</td>
-          <td>{{ $commodity->gambar }}</td>
+          <td><img src="{{ url('storage/commodities/'.$commodity->gambar.'') }}" width="50"></td>
           <td width="12%" align="center">
             <a href="{{ route('commodity.edit', $commodity->id) }}" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
             <button onclick="destroy(`{{ $commodity->id }}`, `{{ $commodity->nama }}`)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>

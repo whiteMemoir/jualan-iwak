@@ -41,12 +41,23 @@ class CommodityController extends Controller
     public function store(Request $request)
     {
         $gambar = $request->file('gambar');
-        $gambar->storeAs('public/commodities', $gambar->hashName());
+        // jika gambar diisi
+        if($gambar) {
+            $gambar->storeAs('public/commodities', $gambar->hashName());
+            $gambar = $gambar->hashName();
+        }
+
+        // jika slug sudah ada
+        $slug = Str::slug($request->nama);
+        $slug_exists = Commodity::where('slug', $slug)->first();
+        if($slug_exists){
+            $slug = $slug.'-'.$slug_exists->id;
+        }
 
         $commodity = Commodity::create([
-            'gambar' => $gambar->hashName(),
+            'gambar' => $gambar,
             'nama'  => $request->nama,
-            'slug'  => Str::slug($request->nama, '-')
+            'slug'  => $slug
         ]);
 
         if ($commodity) {
@@ -87,18 +98,22 @@ class CommodityController extends Controller
      */
     public function update(Request $request, Commodity $commodity)
     {
+        $old_image = null;
+        $slug = Str::slug($request->nama, '-');
+        $slug_exists = Commodity::where('slug', $slug)->where('id', '!=', $commodity->id)->first();
+        if($slug_exists){
+            $slug = $slug.'-'.$slug_exists->id;
+        }
 
         if ($request->file('image') == '') {
             //UPDATE DATA TANPA IMAGE
             $commodity = Commodity::findOrFail($commodity->id);
             $commodity->update([
                 'nama'  =>  $request->nama,
-                'slug'  =>  Str::slug($request->nama, '-'),
+                'slug'  =>  $slug,
             ]);
         } else {
-            //HAPUS IMAGE LAMA
-            Storage::disk('local')->delete('public/commodities/' . basename($commodity->gambar));
-
+            $old_image = basename($commodity->gambar);
             //UPLOAD IMAGE BARU
             $gambar = $request->file('gambar');
             $gambar->storeAs('public/commodities', $gambar->hashName());
@@ -108,11 +123,15 @@ class CommodityController extends Controller
             $commodity->update([
                 'gambar' => $gambar->hashName(),
                 'nama'   => $request->nama,
-                'slug'   => Str::slug($request->nama, '-')
+                'slug'   => $slug
             ]);
         }
 
         if ($commodity) {
+            if($old_image != null){
+                //HAPUS IMAGE LAMA KETIKA DATA BERHASIL DIUPDATE
+                Storage::disk('local')->delete('public/commodities/' . $old_image);
+            }
             return redirect()->route('commodity.index')->with(['success' => 'Data Berhasil Diupdate!']);
         } else {
             return redirect()->route('commodity.index')->with(['error' => 'Data Gagal Diupdate!']);
@@ -134,8 +153,10 @@ class CommodityController extends Controller
 
         $items = Item::where('commodity_id', $id)->get();
         if($items) {
-            $items->commodity_id = null;
-            $items->save();
+            foreach ($items as $item) {
+                $item->commodity_id = null;
+                $item->save();
+            }
         }
 
         if ($commodity) {

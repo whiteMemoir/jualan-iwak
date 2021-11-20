@@ -1,65 +1,9 @@
 @extends('layouts.admin')
+
 @section('sidebar-menu')
-<nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      <!-- Add icons to the links using the .nav-icon class
-           with font-awesome or any other icon font library -->
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/dashboard') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Dashboard
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/commodity') }}" class="nav-link active">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Commodities
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/item') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Items
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/carousel') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Carousel
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/social-media') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Social Medias
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item menu-open">
-        <a href="{{ url('/admin/setting') }}" class="nav-link">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Settings
-          </p>
-        </a>
-      </li>
-    </ul>
-  </nav>
+    @include('includes.sidebar-admin')
 @endsection
+
 @section('box')
 <div class="content">
     <div class="container-fluid">
@@ -76,15 +20,16 @@
                         @method('PUT')
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Nama Komoditas</label>
-                                <input type="text" value="{{ $commodity->nama }}" class="form-control" name="nama" placeholder="Masukkan nama komoditas">
+                                <label>Jenis</label>
+                                <input type="text" value="{{ $commodity->nama }}" class="form-control" name="nama" placeholder="Masukkan jenis" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" value="{{ $commodity->gambar }}" class="custom-file-input" id="exampleInputFile" name="gambar">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        {{-- <input type="file" value="{{ $commodity->gambar }}" class="custom-file-input" id="exampleInputFile" name="gambar" required>
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label> --}}
+                                        <input type="file" class="form-control" name="gambar">
                                     </div>
                                 </div>
                             </div>

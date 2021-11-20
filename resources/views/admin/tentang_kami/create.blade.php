@@ -15,21 +15,18 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="POST" action={{ url('/admin/item') }}>
+                    <form method="POST" action={{ url('/admin/tentang-kami') }}>
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label>No WA</label>
-                                <input type="text" class="form-control" name="no-wa" placeholder="Masukkan nomor WA">
+                                <label>Judul</label>
+                                <input type="text" class="form-control" name="judul" placeholder="Masukkan judul">
                             </div>
                             <div class="form-group">
-                                <label>Tentang</label>
-                                <textarea class="form-control" name="tentang" id="" cols="10" rows="4"></textarea>
+                                <label>Deskripsi</label>
+                                <textarea name="deskripsi" rows="4" class="form-control"></textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Alamat</label>
-                                <textarea class="form-control" name="Alamat" id="" cols="10" rows="4"></textarea>
-                            </div>
+                        </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Simpan</button>

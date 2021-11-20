@@ -1,65 +1,30 @@
 <!--CONTENT-->
     <main>
         <div class="content-top">
-            <div class="content-flex">
+            <div class="content-flex" style="margin-bottom: 60px; height: auto !important;">
                 <div class="content-grid">
-                    <div class="icon-menu">
-                        <a class="" href="#">
-                            <div class="width-menu-item">
-                                <div class="menu-item">
-                                    <div class="menu-image"></div>
+                    @foreach ($commodities as $commodity)
+                        <div class="icon-menu">
+                            <a class="" href="{{ url('items/'.$commodity->slug.'') }}">
+                                <div class="width-menu-item">
+                                    <div class="menu-item">
+                                        <div class="menu-image">
+                                            <img src="{{ url('storage/commodities/'.$commodity->gambar.'') }}" class="img-fluid">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="menu-text">Udang</div>
-                        </a>
-                    </div>
-                    <div class="icon-menu">
-                        <a class="" href="#">
-                            <div class="width-menu-item">
-                                <div class="menu-item">
-                                    <div class="menu-image"></div>
-                                </div>
-                            </div>
-                            <div class="menu-text">Ikan</div>
-                        </a>
-                    </div>
-                    <div class="icon-menu">
-                        <a class="" href="#">
-                            <div class="width-menu-item">
-                                <div class="menu-item">
-                                    <div class="menu-image"></div>
-                                </div>
-                            </div>
-                            <div class="menu-text">Lobster</div>
-                        </a>
-                    </div>
-                    <div class="icon-menu">
-                        <a class="" href="#">
-                            <div class="width-menu-item">
-                                <div class="menu-item">
-                                    <div class="menu-image"></div>
-                                </div>
-                            </div>
-                            <div class="menu-text">Hewan Buatan</div>
-                        </a>
-                    </div>
-                    <div class="icon-menu">
-                        <a class="" href="#">
-                            <div class="width-menu-item">
-                                <div class="menu-item">
-                                    <div class="menu-image"></div>
-                                </div>
-                            </div>
-                            <div class="menu-text">Daging</div>
-                        </a>
-                    </div>
+                                <div class="menu-text">{{ $commodity->nama }}</div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
+            <hr>
 
             <div class="content-center">
                 <div class="text-subtitle">
-                    <h1>Jenis Ikan</h1>
+                    <h1>List Item</h1>
                 </div>
                 <p></p>
                 <div class="slider-menu">
@@ -73,7 +38,8 @@
                                         <div class="inner-slider-menu">
                                             <div class="top-inner">
                                                 <div class="inner-img d-flex justify-content-center">
-                                                    <div class=""><img src="https://i.ibb.co/zHwByY8/g1git status851.png"></div>
+                                                    <img src="{{ asset('storage/items/'.$item->gambar.'') }}" alt="" style="padding: 3px;" class="border">
+
                                                 </div>
                                             </div>
                                             <div class="center-inner">
@@ -104,10 +70,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="see-all">
-                    <div class="position-relative">{{ $items->links() }}</div><br>                    
-                </div>
+
                 <div class="see-all"><a href="{{ url('items')}}" class="btn btn-primary">Lihat Semua</a></div>
             </div>
         </div>
