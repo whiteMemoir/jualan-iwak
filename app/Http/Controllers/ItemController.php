@@ -6,6 +6,7 @@ use App\Item;
 use App\Tentang;
 use Illuminate\Http\Request;
 use App\Commodity;
+use App\Carousel;
 
 class ItemController extends Controller
 {
