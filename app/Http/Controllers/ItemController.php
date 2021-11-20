@@ -21,6 +21,7 @@ class ItemController extends Controller
 
         $data['slug'] = $slug;
         $data['commodities'] = Commodity::get();
+        $data['carousels'] = Carousel::all();
 
         return view('pages.item', $data);
     }
