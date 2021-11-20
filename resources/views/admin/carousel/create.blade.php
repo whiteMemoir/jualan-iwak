@@ -15,7 +15,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="POST" action={{ url('/admin/item') }} enctype="multipart/form-data">
+                    <form method="POST" action={{ url('/admin/carousel') }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -24,12 +24,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
-                                <div class="input-group">
+                                <input type="file" name="gambar" class="form-control">
+                                {{-- <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
@@ -37,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" placeholder="Masukkan link">
+                                <input type="url" class="form-control" name="link" placeholder="Masukkan link">
                             </div>
                         </div>
                         <!-- /.card-body -->

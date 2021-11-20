@@ -21,24 +21,26 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama Banner</label>
-                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama gambar">
+                                <input type="text" class="form-control" name="nama" placeholder="Masukkan nama gambar" value="{{ $carousel->nama }}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File Gambar</label>
-                                <div class="input-group">
+                                {{-- <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
-                                </div>
+                                </div> --}}
+                                <input type="file" class="form-control" name="gambar">
+                                <input type="hidden" name="gambar_lama" value="{{ $carousel->gambar }}">
                             </div>
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <textarea class="form-control" name="keterangan" id="" cols="10" rows="4"></textarea>
+                                <textarea class="form-control" name="keterangan" id="" cols="10" rows="4">{{ $carousel->keterangan }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" placeholder="Masukkan link">
+                                <input type="url" class="form-control" name="link" placeholder="Masukkan link" value="{{ $carousel->link }}">
                             </div>
                         </div>
                         <!-- /.card-body -->

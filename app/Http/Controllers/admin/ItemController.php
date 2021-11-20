@@ -41,13 +41,24 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $gambar = $request->file('gambar');
-        $gambar->storeAs('public/items', $gambar->hashName());
+        $gambar = null;
+        if($request->file('gambar')) {
+            $gambar = $request->file('gambar');
+            $gambar->storeAs('public/items', $gambar->hashName());
+            $gambar = $gambar->hashName();
+        }
+
+        // cek slug
+        $slug = Str::slug($request->nama);
+        $slug_exists = Item::where('slug', $slug)->first();
+        if($slug_exists){
+            $slug = $slug.'-'.$slug_exists->id;
+        }
 
         $item = Item::create([
-            'gambar'        => $gambar->hashName(),
+            'gambar'        => $gambar,
             'nama'          => $request->nama,
-            'slug'          => Str::slug($request->name, '-'),
+            'slug'          => $slug,
             'commodity_id'  => $request->commodity_id,
             'deskripsi'     => $request->deskripsi,
             'diskon'        => $request->diskon ?? 0,
