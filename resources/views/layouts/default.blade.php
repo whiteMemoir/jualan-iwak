@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{!! asset('assets/css/style.css?v=1.2') !!}">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-    @yield('css');
+    @yield('css')
 </head>
 <body>
     @include('includes.nav')
