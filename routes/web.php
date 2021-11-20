@@ -24,6 +24,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/commodity', 'admin\CommodityController');
         Route::resource('/setting', 'admin\SettingController');
         Route::resource('/social-media', 'admin\SocialMediaController');
+        Route::resource('/tentang-kami', 'admin\TentangKamiController');
         Route::get('/dashboard', 'admin\DashboardController@index');
     });
 });

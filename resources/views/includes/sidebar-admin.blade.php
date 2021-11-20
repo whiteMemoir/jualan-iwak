@@ -49,6 +49,15 @@
       </li>
 
       <li class="nav-item menu-open">
+        <a href="{{ url('/admin/tentang-kami') }}" class="nav-link {{ request()->segment(2) == 'tentang-kami' ? 'active' : '' }}">
+          <i class="nav-icon fas fa-list"></i>
+          <p>
+            Tentang Kami
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item menu-open">
         <a href="{{ url('/admin/setting') }}" class="nav-link {{ request()->segment(2) == 'setting' ? 'active' : '' }}">
           <i class="nav-icon fas fa-cog"></i>
           <p>
