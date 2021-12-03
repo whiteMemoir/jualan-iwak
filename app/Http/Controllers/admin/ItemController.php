@@ -8,6 +8,7 @@ use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Image;
 
 class ItemController extends Controller
 {
@@ -44,8 +45,7 @@ class ItemController extends Controller
         $gambar = null;
         if($request->file('gambar')) {
             $gambar = $request->file('gambar');
-            $gambar->storeAs('public/items', $gambar->hashName());
-            $gambar = $gambar->hashName();
+            $gambar = $this->imgResize($gambar);
         }
 
         // cek slug
@@ -105,7 +105,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        if ($request->file('image') == '') {
+        if ($request->file('gambar') == '') {
             //UPDATE DATA TANPA IMAGE
             $item = Item::findOrFail($item->id);
             $item->update([
@@ -118,17 +118,21 @@ class ItemController extends Controller
                 'keterangan'    => $request->keterangan
             ]);
         } else {
-            //HAPUS IMAGE LAMA
-            Storage::disk('local')->delete('public/items/' . basename($item->gambar));
+            $gambar_lama = $item->gambar;
 
             //UPLOAD IMAGE BARU
             $gambar = $request->file('gambar');
-            $gambar->storeAs('public/items', $gambar->hashName());
+            $gambar = $this->imgResize($gambar);
+            if(!$gambar) {
+                $gambar = null;
+            }
+
+            // $gambar->storeAs('public/items', $gambar->hashName());
 
             //UPDATE DENGAN IMAGE BARU
             $item = Item::findOrFail($item->id);
             $item->update([
-                'gambar'        => $gambar->hashName(),
+                'gambar'        => $gambar,
                 'nama'          => $request->nama,
                 'slug'          => Str::slug($request->nama, '-'),
                 'commodity_id'  => $request->commodity_id,
@@ -140,6 +144,10 @@ class ItemController extends Controller
         }
 
         if ($item) {
+            if($request->file('gambar') != '') {
+                //HAPUS IMAGE LAMA jka berhasil update
+                Storage::disk('local')->delete('public/items/' . basename($gambar_lama));
+            }
             return redirect()->route('item.index')->with(['success' => 'Data Berhasil Diupdate!']);
         } else {
             return redirect()->route('item.index')->with(['error' => 'Data Gagal Diupdate!']);
@@ -167,5 +175,25 @@ class ItemController extends Controller
                 'status' => 'error'
             ]);
         }
+    }
+
+     /**
+     * Image resize
+     */
+    private function imgResize($gambar)
+    {
+        $filePath = public_path('storage\items\\');
+        $img = Image::make($gambar->path());
+        $gambar = $gambar->hashName();
+        $img->resize(140, 110, function ($const) {
+            // dd($const);
+            // $const->aspectRatio();
+        })->save($filePath.$gambar);
+
+        if($img) {
+            return $gambar;
+        }
+
+        return false;
     }
 }
