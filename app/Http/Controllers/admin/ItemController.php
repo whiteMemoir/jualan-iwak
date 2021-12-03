@@ -182,7 +182,7 @@ class ItemController extends Controller
      */
     private function imgResize($gambar)
     {
-        $filePath = public_path('storage\items\\');
+        $filePath = public_path('..\public\storage\items\\');
         $img = Image::make($gambar->path());
         $gambar = $gambar->hashName();
         $img->resize(140, 110, function ($const) {
