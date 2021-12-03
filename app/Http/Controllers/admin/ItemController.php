@@ -177,21 +177,17 @@ class ItemController extends Controller
         }
     }
 
-     /**
+    /**
      * Image resize
      */
     private function imgResize($gambar)
     {
-        $filePath = public_path('..\public\storage\items\\');
+        $path = public_path().'/storage/items/';
         $img = Image::make($gambar->path());
-        $gambar = $gambar->hashName();
-        $img->resize(140, 110, function ($const) {
-            // dd($const);
-            // $const->aspectRatio();
-        })->save($filePath.$gambar);
+        $img->resize(140, 110)->save($path.$gambar->hashName());
 
         if($img) {
-            return $gambar;
+            return $gambar->hashName();
         }
 
         return false;
