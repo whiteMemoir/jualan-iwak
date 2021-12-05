@@ -26,7 +26,7 @@ class AlterItemTable1 extends Migration
     public function down()
     {
         Schema::table('items', function(Blueprint $table){
-            $table->dropColumn('items');
+            $table->dropColumn('gambar_modal');
         });
     }
 }
