@@ -1,8 +1,3 @@
-@php
-    $setting = new \App\Setting();
-
-    $no_wa = $setting::no_wa();
-@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,7 +67,7 @@
     @yield('owl')
     <script type="text/javascript">
         const BASE_URL = `{{ url('') }}`;
-        const NO_WA = `{{ $no_wa }}`;
+        const NO_WA = `{{ no_wa() }}`;
         var total_items = 0;
         var getTotalItem = function() {
 

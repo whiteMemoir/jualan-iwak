@@ -11,11 +11,4 @@ class Setting extends Model
         'nomor_wa',
         'alamat'
     ];
-
-    // untuk sementara no wa dari sini kawkawkawkawk
-    // nanti diperbaikin kalo ingat akwawkkawkaw
-    public static function no_wa()
-    {
-        return '6285333372786';
-    }
 }
