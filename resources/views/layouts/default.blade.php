@@ -1,3 +1,8 @@
+@php
+    $setting = new \App\Setting();
+
+    $no_wa = $setting::no_wa();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +20,22 @@
     <link rel="stylesheet" href="{!! asset('assets/css/style.css?v=1.2') !!}">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     @yield('css')
+    <style>
+        .cart-items {
+            background-color: #2d3e57;
+            border-radius: 50%;
+            position: absolute;
+            width: 20px;
+            font-size: 10px;
+            padding: 10px 0px;
+            text-align: center;
+            right: 10px;
+            top: 0;
+            font-weight: bold;
+            color: white;
+            line-height: 0.5px;
+        }
+    </style>
 </head>
 <body>
     @include('includes.nav')
@@ -23,7 +44,6 @@
             <header>
                 <div class="banner">
                     <div class="banner-bg" style="font-family: Lobster, sans-serif; font-size: 20px; color: #fff;">Lautanikan.com</div>
-                    <!-- <div class="search-bar"></div> -->
                     <div class="bot-div">
                         <div class="bottom-blue"></div>
                         @yield('carousel')
@@ -50,6 +70,43 @@
     <!--owl carousel js link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     @yield('owl')
+    <script type="text/javascript">
+        const BASE_URL = `{{ url('') }}`;
+        const NO_WA = `{{ $no_wa }}`;
+        var total_items = 0;
+        var getTotalItem = function() {
+
+            let total = 0;
+            Object.keys(sessionStorage).forEach((key) => {
+                if(key != 'total') {
+                    let val = sessionStorage.getItem(key);
+                    let item = val.split(',');
+
+                    total += parseInt(item[3]);
+                }
+            });
+
+            // set total keranjang
+            sessionStorage.setItem('total', total);
+
+            session_total = sessionStorage.getItem('total');
+            if(session_total != null) {
+                total_items = session_total;
+            }
+
+            $('.cart-items').text(total_items)
+        }
+
+        getTotalItem();
+
+        var formatRupiah = function(nilai) {
+            let	reverse = nilai.toString().split('').reverse().join(''),
+            result 	= reverse.match(/\d{1,3}/g);
+            result	= result.join('.').split('').reverse().join('');
+
+            return result;
+        }
+    </script>
     @yield('scripts')
 </body>
 </html>

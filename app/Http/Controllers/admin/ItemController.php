@@ -133,6 +133,7 @@ class ItemController extends Controller
             $item = Item::findOrFail($item->id);
             $item->update([
                 'gambar'        => $gambar,
+                'gambar_modal'  => $gambar,
                 'nama'          => $request->nama,
                 'slug'          => Str::slug($request->nama, '-'),
                 'commodity_id'  => $request->commodity_id,
@@ -147,6 +148,7 @@ class ItemController extends Controller
             if($request->file('gambar') != '') {
                 //HAPUS IMAGE LAMA jka berhasil update
                 Storage::disk('local')->delete('public/items/' . basename($gambar_lama));
+                Storage::disk('local')->delete('public/items/modals/' . basename($gambar_lama));
             }
             return redirect()->route('item.index')->with(['success' => 'Data Berhasil Diupdate!']);
         } else {
@@ -185,6 +187,10 @@ class ItemController extends Controller
         $path = public_path().'/storage/items/';
         $img = Image::make($gambar->path());
         $img->resize(140, 110)->save($path.$gambar->hashName());
+
+        $path = public_path().'/storage/items/modals/';
+        $img = Image::make($gambar->path());
+        $img->resize(465, 465)->save($path.$gambar->hashName());
 
         if($img) {
             return $gambar->hashName();

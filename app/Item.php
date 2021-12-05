@@ -11,6 +11,7 @@ class Item extends Model
         'commodity_id',
         'slug',
         'gambar',
+        'gambar_modal',
         'deskripsi',
         'diskon',
         'harga',

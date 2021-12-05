@@ -49,7 +49,7 @@
                                 <input type="number" class="form-control" name="harga" placeholder="Masukkan harga item" required>
                             </div>
                             <div class="form-group">
-                                <label>Diskon</label>
+                                <label>Diskon (Rp)</label>
                                 <input type="number" class="form-control" name="diskon" placeholder="Masukkan diskon item" required>
                             </div>
                         </div>

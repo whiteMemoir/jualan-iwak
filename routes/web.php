@@ -34,6 +34,7 @@ Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/items', 'ItemController@index');
 Route::get('/items/{slug}', 'ItemController@index');
+Route::get('/keranjang', 'KeranjangController@index');
 
 Route::prefix('api')->group(function () {
     Route::get('/items/{komoditas}', 'ItemController@getItems');

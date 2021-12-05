@@ -28,10 +28,17 @@
         </div>
     </div>
     <div class="container mt-4">
-        <div class="row pb-md-5 content-utama">
+        <div class="row content-utama">
 
             @forelse ($items as $item)
-                <div class="col-4 mx-2 mb-2 wrap-items">
+                @php
+                    $hasilAkhir = $item->harga - $item->diskon;
+                    $price = 'Rp. '.number_format($hasilAkhir, 0, ",", "."). '/kg';
+
+                    $data_json = json_encode($item);
+                @endphp
+                <div class="col-4 mx-2 mb-2 wrap-items item-click" data-bs-toggle="modal" data-bs-target="#modalItem"
+                data-json="{{ $data_json }}">
                     <div class="inner-slider-menu">
                         <div class="top-inner">
                             <div class="inner-img">
@@ -43,20 +50,19 @@
                                 <span class="text-base">
                                     <span class="line-clamp" style="font-weight: bold;">{{ $item->nama }}</span>
                                 </span>
+                            </h2>
                             <div class="disc-inner-amount">
-                                @if($item->diskon == 0)
+                                {{-- @if($item->diskon == 0)
                                     <span class="text-base badge bg-danger" style="font-size: 10px">Tidak ada diskon</span>
                                 @else
                                     <div class="price-discount">
                                         <div class="disc-value">{{ $item->diskon ?? '0'}}%</div>
                                     </div>
                                     <div class="strikethrough">{{ $item->harga ?? 0 }}/kg</div>
-                                @endif
+                                @endif --}}
+                                <div class="strikethrough">{{ $item->harga ?? 0 }}/kg</div>
                             </div>
-                            <div class="price-amount">@php
-                               $hasilAkhir = $item['harga'] - ($item['harga'] * $item['diskon'] / 100);
-                               echo 'Rp. '.number_format($hasilAkhir, 0, ",", ".");
-                            @endphp/kg</div>
+                            <div class="price-amount">{{ $price }}</div>
                         </div>
                     </div>
                 </div>
@@ -65,7 +71,17 @@
             @endforelse
 
         </div>
+
+        @if(count($items) > 3)
+        <div class="row py-4">
+            <div class="col-12 text-center">
+                <button class="btn btn-primary btn-sm">Lihat Lainnya</button>
+            </div>
+        </div>
+        @endif
     </div>
+
+    @include('includes.modals.modal-item')
 </main>
 @section('footer')
     @include('includes.footer')
@@ -78,6 +94,9 @@
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
+
+@include('includes.js.js-cart')
+
 <script type="text/Javascript">
     function selectJenis(value = ''){
         $.ajax({
@@ -92,23 +111,21 @@
                 if(data.length > 0) {
                     html = ''
                     $.each(data, function(key, value){
-                        html += `<div class="col-4 mb-3 mx-2">
+                        data_json = `${JSON.stringify(value)}`;
+                        html += `<div class="col-4 mb-3 mx-2 item-click" data-bs-toggle="modal" data-bs-target="#modalItem" data-json='${data_json}'>
                             <div class="inner-slider-menu">
                                 <div class="top-inner">
                                     <div class="inner-img">
-                                        <img data-src="../storage/items/${value.gambar}" alt="" style="padding: 3px;" class="border img-fluid lazy">
+                                        <img data-src="${BASE_URL}/storage/items/${value.gambar}" style="padding: 3px;" class="border img-fluid lazy">
                                     </div>
                                 </div>
                                 <div class="center-inner">
                                     <h2>
-                                        <span class="text-flex">
-                                            <span class="text-desc">${value.nama}</span>
+                                        <span class="text-base">
+                                            <span class="line-clamp" style="font-weight: bold;">${value.nama ?? '-'}</span>
                                         </span>
                                     </h2>
                                     <div class="disc-inner-amount">
-                                        <div class="price-discount">
-                                            <div class="disc-value">${value.diskon}</div>
-                                        </div>
                                         <div class="strikethrough">Rp. ${priceDiskon(value.harga, value.diskon)}</div>
                                     </div>
                                     <div class="price-amount">Rp. ${formatRupiah(value.harga)}</div>
@@ -123,16 +140,10 @@
                 }
 
                 $('.content-utama').html(html);
+
+                modalItem()
             }
         })
-    }
-
-    function formatRupiah(nilai) {
-        let	reverse = nilai.toString().split('').reverse().join(''),
-        ribuan 	= reverse.match(/\d{1,3}/g);
-        ribuan	= ribuan.join('.').split('').reverse().join('');
-
-        return ribuan;
     }
 
     function priceDiskon(price, diskon) {
