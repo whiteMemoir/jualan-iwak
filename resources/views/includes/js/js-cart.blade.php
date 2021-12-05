@@ -15,7 +15,6 @@
     {
         $('.item-click').click(function(){
             let data = $(this).data('json');
-            console.log(data);
             let string = JSON.stringify(data)
             let json = JSON.parse(string);
             let text_wa = `- Nama Item: ${json.nama}%0A - Jumlah : `;
@@ -30,7 +29,7 @@
                 <span class="input-group-btn">
                     <button type="button" id="minus" class="btn btn-success" data-type="minus">-</button>
                 </span>
-                <input type="text" step="1" class="form-control text-center" id="qty" value="1" style="width: 20%; flex: none !important;">
+                <input type="text" step="1" class="form-control text-center" onkeyup="return notNull(this.value)" onkeypress="return numberOnly(event)" id="qty" value="1" style="width: 20%; flex: none !important;">
                 <span class="input-group-btn">
                     <button type="button" id="plus" class="btn btn-success" data-type="plus">+</button>
                 </span>
@@ -83,8 +82,6 @@
              // maka update saja
              data = checkCartToUpdate(id, data)
 
-             console.log(data);
-
              // set session berdasarkan id item
              sessionStorage.setItem(id, data);
              getTotalItem()
@@ -114,5 +111,19 @@
          }
 
          return data;
+    }
+
+    function notNull(val)
+    {
+        if(val == "") $('#qty').val(1)
+    }
+
+    function numberOnly(event)
+    {
+        let asci = (event.which) ? event.which : event.keyCode
+        if (asci > 31 && (asci < 48 || asci > 57))
+            return false;
+
+        return true;
     }
  </script>
