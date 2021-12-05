@@ -133,13 +133,15 @@
             if(qty > 1) {
                 qty--;
             }
+            $('#qty').val(qty);
         })
 
         $('#plus').click(function(){
             qty++
+
+            $('#qty').val(qty);
         });
 
-        $('#qty').val(qty);
     }
 
     function updateItem()

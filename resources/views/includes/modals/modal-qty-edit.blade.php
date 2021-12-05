@@ -14,7 +14,7 @@
                         <span class="input-group-btn">
                             <button type="button" id="minus" class="btn btn-success" data-type="minus">-</button>
                         </span>
-                        <input type="text" step="1" class="form-control text-center" id="qty" value="1" style="width: 20%; flex: none !important;">
+                        <input type="text" step="1" class="form-control text-center" id="qty" value="1"  onkeyup="return notNull(this.value)" onkeypress="return numberOnly(event)" style="width: 20%; flex: none !important;">
                         <span class="input-group-btn">
                             <button type="button" id="plus" class="btn btn-success" data-type="plus">+</button>
                         </span>

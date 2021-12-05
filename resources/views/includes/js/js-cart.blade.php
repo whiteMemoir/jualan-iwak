@@ -113,17 +113,4 @@
          return data;
     }
 
-    function notNull(val)
-    {
-        if(val == "") $('#qty').val(1)
-    }
-
-    function numberOnly(event)
-    {
-        let asci = (event.which) ? event.which : event.keyCode
-        if (asci > 31 && (asci < 48 || asci > 57))
-            return false;
-
-        return true;
-    }
  </script>
