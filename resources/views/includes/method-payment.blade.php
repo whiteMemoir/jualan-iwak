@@ -1,6 +1,6 @@
 <div class="body-flex payment-method">
     <h2>Metode Pembayaran</h2>
-    <p class="text-center">Transfer Melalui Rekening Bank BRI <br> <b>745201002461537 a/n Yahya</b></p>
+    <p class="text-center">Transfer Melalui Rekening Bank BRI <br> <b>064601045716501 a/n Yahya</b></p>
     <p class="text-center">Silahkan hubungi melalui Whatsapp</p>
     <div class="d-flex justify-content-center">
         <a href="https://wa.me/{{ no_wa() }}" target="_blank" class="btn btn-success btn-sm text-center" style="line-height: 0.5; padding: 10px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
