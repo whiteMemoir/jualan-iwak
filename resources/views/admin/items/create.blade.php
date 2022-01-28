@@ -49,8 +49,8 @@
                                 <input type="number" class="form-control" name="harga" placeholder="Masukkan harga item" required>
                             </div>
                             <div class="form-group">
-                                <label>Diskon (Rp)</label>
-                                <input type="number" class="form-control" name="diskon" placeholder="Masukkan diskon item" required>
+                                <label>Harga Coret</label>
+                                <input type="number" class="form-control" name="diskon" placeholder="Masukkan harga coret" required>
                             </div>
                         </div>
                         <!-- /.card-body -->

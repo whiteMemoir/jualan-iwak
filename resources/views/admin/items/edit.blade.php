@@ -50,8 +50,8 @@
                                 <input type="number" value="{{ $item->harga }}" class="form-control" name="harga" placeholder="Masukkan harga item" required>
                             </div>
                             <div class="form-group">
-                                <label>Diskon</label>
-                                <input type="number" value="{{ $item->diskon }}" class="form-control" name="diskon" placeholder="Masukkan diskon item" required>
+                                <label>Harga Coret</label>
+                                <input type="number" value="{{ $item->diskon }}" class="form-control" name="diskon" placeholder="Masukkan harga coret" required>
                             </div>
                         </div>
                         <!-- /.card-body -->

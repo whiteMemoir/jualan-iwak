@@ -36,7 +36,7 @@
                         <th>Gambar</th>
                         <th>Komoditas</th>
                         <th>Harga</th>
-                        <th>Diskon</th>
+                        <th>Harga Coret</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
