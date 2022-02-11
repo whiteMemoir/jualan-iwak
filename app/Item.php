@@ -15,7 +15,8 @@ class Item extends Model
         'deskripsi',
         'diskon',
         'harga',
-        'keterangan'
+        'keterangan',
+        'satuan'
     ];
 
     public function commodity()

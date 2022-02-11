@@ -45,9 +45,18 @@
                                 <label>Deskripsi</label>
                                 <textarea class="form-control" name="deskripsi" id="" cols="10" rows="4">{{ $item->deskripsi }}</textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Harga</label>
-                                <input type="number" value="{{ $item->harga }}" class="form-control" name="harga" placeholder="Masukkan harga item" required>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Harga</label>
+                                    <input type="number" value="{{ $item->harga }}" class="form-control" name="harga" placeholder="Masukkan harga item" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Satuan</label>
+                                    <select name="satuan" id="satuan" class="form-control">
+                                        <option value="Kg" {{ $item->satuan == 'Kg' ? 'selected' : '' }}>Kg</option>
+                                        <option value="Ekor" {{ $item->satuan == 'Ekor' ? 'selected' : '' }}>Ekor</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Harga Coret</label>

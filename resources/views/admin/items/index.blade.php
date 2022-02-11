@@ -33,6 +33,7 @@
                     <tr>
                         <th width="5%">No</th>
                         <th>Nama</th>
+                        <th>Satuan</th>
                         <th>Gambar</th>
                         <th>Komoditas</th>
                         <th>Harga</th>
@@ -45,6 +46,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama }}</td>
+                            <td>{{ $item->satuan }}</td>
                             <td><img src="{{ asset('storage/items/'.$item->gambar.'') }}" width="50"></td>
                             <td>{{ $item->commodity ? $item->commodity->nama : '' }}</td>
                             <td>{{ $item->harga }}</td>

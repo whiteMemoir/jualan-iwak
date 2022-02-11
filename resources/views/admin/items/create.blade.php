@@ -44,9 +44,18 @@
                                 <label>Deskripsi</label>
                                 <textarea class="form-control" name="deskripsi" id="" cols="10" rows="4"></textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Harga</label>
-                                <input type="number" class="form-control" name="harga" placeholder="Masukkan harga item" required>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Harga</label>
+                                    <input type="number" class="form-control" name="harga" placeholder="Masukkan harga item" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Satuan</label>
+                                    <select name="satuan" id="satuan" class="form-control">
+                                        <option value="Kg">Kg</option>
+                                        <option value="Ekor">Ekor</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Harga Coret</label>

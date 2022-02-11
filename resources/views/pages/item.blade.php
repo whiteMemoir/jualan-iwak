@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="strikethrough">{{ $item->harga ?? 0 }}/kg</div>
                                 @endif --}}
-                                <div class="strikethrough">{{ $item->diskon ?? 0 }}/kg</div>
+                                <div class="strikethrough">{{ $item->diskon ?? 0 }}/{{ $item->satuan ?? 'Kg' }}</div>
                             </div>
                             <div class="price-amount">{{ $price }}</div>
                         </div>

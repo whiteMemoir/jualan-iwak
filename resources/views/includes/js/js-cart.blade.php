@@ -24,7 +24,7 @@
                 <hr>
                 <h5>${json.nama}</h5>
                 <p>${json.deskripsi}</p>
-                <div class="price-amount">Rp. ${json.harga}/Kg</div>
+                <div class="price-amount">Rp. ${json.harga}/${json.satuan ?? 'Kg'}</div>
             <div class="input-group">
                 <span class="input-group-btn">
                     <button type="button" id="minus" class="btn btn-success" data-type="minus">-</button>

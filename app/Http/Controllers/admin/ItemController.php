@@ -115,7 +115,8 @@ class ItemController extends Controller
                 'deskripsi'     => $request->deskripsi,
                 'diskon'        => $request->diskon,
                 'harga'         => $request->harga,
-                'keterangan'    => $request->keterangan
+                'keterangan'    => $request->keterangan,
+                'satuan'        => $request->satuan
             ]);
         } else {
             $gambar_lama = $item->gambar;
@@ -140,7 +141,8 @@ class ItemController extends Controller
                 'deskripsi'     => $request->deskripsi,
                 'diskon'        => $request->diskon,
                 'harga'         => $request->harga,
-                'keterangan'    => $request->keterangan
+                'keterangan'    => $request->keterangan,
+                'satuan'        => $request->satuan
             ]);
         }
 

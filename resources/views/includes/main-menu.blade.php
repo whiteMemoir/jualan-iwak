@@ -63,9 +63,9 @@
                                                             <div class="disc-value">{{ $item->diskon ?? '0' }}%
                                                             </div>
                                                         </div> --}}
-                                                        <div class="strikethrough">{{ $item->harga ?? 0 }}/kg</div>
+                                                        <div class="strikethrough">{{ $item->harga ?? 0 }}/{{ $item->satuan ?? 'Kg' }}</div>
                                                     </div>
-                                                    <div class="price-amount">{{ $price . '/kg' }}</div>
+                                                    <div class="price-amount">{{ $price }}/{{ $item->satuan ?? 'Kg' }}</div>
                                             </div>
                                         </div>
                                     </div>
